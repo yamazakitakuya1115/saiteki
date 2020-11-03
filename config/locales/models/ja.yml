@@ -1,0 +1,11 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        account: アカウント名
+        name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        prefecture_id: 都道府県
+        profile: プロフィール

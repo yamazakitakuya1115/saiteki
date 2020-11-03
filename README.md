@@ -6,7 +6,7 @@
 | name          | string  | null: false |
 | email         | string  | null: false |
 | prefecture_id | integer | null: false |
-| who_id        | integer | null: false |
+| profile       | text    | null: false |
 
 ### Association
 - has_many :articles

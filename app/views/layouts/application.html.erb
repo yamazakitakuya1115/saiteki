@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Saiteki</title>
+    <title>さいてき</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
   <body>
-    <%= yield %>
+    <%= render partial: '/shared/header' %>
+      <div class='main'>
+        <div class='main-contents'>
+          <%= yield %>
+        </div>
+        <div class='main-side'>
+          <%= render partial: '/shared/side' %>
+        </div>
+      </div>
+    <%= render partial: '/shared/footer' %>
   </body>
 </html>

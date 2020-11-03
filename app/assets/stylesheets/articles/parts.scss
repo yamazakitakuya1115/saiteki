@@ -1,0 +1,70 @@
+// ヘッダー部分
+.top-header {
+  background-image: url('/assets/books.jpg');
+  width: 100vw;
+  height: 20vh;
+}
+
+.site-title {
+  font-size: 48px;
+}
+
+// フッター部分
+.top-footer {
+  background-color: pink;
+  width: 100vw;
+  height: 20vh;
+}
+
+// ページ全体の配置
+.main{
+  background-color: lightyellow;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 70vw;
+}
+
+.main-contents {
+  background-color: lightgreen;
+  margin: 20px 0;
+  padding: 10px 0;
+  width: 80%;
+  min-width: 500px;
+  font-size: 20px;
+}
+
+.main-side {
+  background-color: lightgray;
+  margin: 20px 0;
+  padding: 10px 0;
+  width: 250px;
+  min-width: 200px;
+}
+
+
+
+// スマホ表示
+@media (max-width: 750px) {
+  .main{
+    background-color: lightyellow;
+    margin: 0 auto;
+    width: 95vw;
+    display: block;
+  }
+  
+  .main-contents {
+    background-color: green;
+    margin: 20px 0;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .main-side {
+    background-color: gray;
+    margin: 20px 0;
+    padding: 10px 0;
+    width: 100%;
+  }
+}
