@@ -13,8 +13,9 @@
 - has_many :comments
 
 ## articles テーブル
-| Column     | Type       |                  Options |
+| Column     | Type       | Options                  |
 | ---------- | ---------- | ------------------------ |
+| grade_id   | integer    | null: false              |
 | genre_id   | integer    | null: false              |
 | subject_id | integer    | null: false              |
 | title      | string     | null: false              |
