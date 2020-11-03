@@ -9,3 +9,9 @@ ja:
         password_confirmation: パスワード（確認）
         prefecture_id: 都道府県
         profile: プロフィール
+      article:
+        title: 記事タイトル
+        grade_id: 学年
+        subject_id: 教科
+        genre_id: ジャンル
+        content: 記事内容

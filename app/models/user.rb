@@ -4,8 +4,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    validates :name
-    validates :account, uniqueness: true, format: { with: /\A[a-zA-Z0-9]{3,20}/, message: 'は3〜20字の半角英数で入力してください' }
+    validates :name, length: {maximum: 30}
+    validates :account, uniqueness: {case_sensitive: false}, length: {in: 3..20}, format: { with: /\A[a-z0-9_]+\z/i, message: 'が登録できません' }
+    PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+    validates_format_of :password, with: PASSWORD_REGEX, message: 'には英字と数字の両方を含めて設定してください'
   end
 
   validates :prefecture_id, numericality: { other_than: 0, message: "を選択してください" }
