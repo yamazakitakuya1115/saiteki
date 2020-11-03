@@ -13,14 +13,15 @@
 - has_many :comments
 
 ## articles テーブル
-| Column     | Type       | Options                  |
-| ---------- | ---------- | ------------------------ |
-| grade_id   | integer    | null: false              |
-| genre_id   | integer    | null: false              |
-| subject_id | integer    | null: false              |
-| title      | string     | null: false              |
-| content    | text       | null: false              |
-| user       | references | null: false, foreign_key |
+| Column     | Type       | Options                     |
+| ---------- | ---------- | --------------------------- |
+| grade_id   | integer    | null: false                 |
+| genre_id   | integer    | null: false                 |
+| subject_id | integer    | null: false                 |
+| title      | string     | null: false                 |
+| content    | text       | null: false                 |
+| release    | boolean    | null: false, default: false |
+| user       | references | null: false, foreign_key    |
 
 ### Association
 - belongs_to :user
