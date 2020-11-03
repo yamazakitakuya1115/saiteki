@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
 
   def index
+    @articles = Article.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -10,13 +11,16 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    binding.pry
     @article = Article.new(article_params)
     if @article.save
       redirect_to root_path
     else
       render :new
     end
+  end
+
+  def show
+    @article = Article.find(params[:id])
   end
 
   private

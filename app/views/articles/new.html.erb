@@ -1,7 +1,7 @@
 <h1>新規投稿ページ</h1>
 
 <%= form_with(model: @article, url: articles_path, local: true) do |f| %>
-    <%= render 'shared/error_messages', model: f.object %>
+  <%= render 'shared/error_messages', model: f.object %>
 
   <div class="field">
     <%= f.label '記事タイトル' %><br />
