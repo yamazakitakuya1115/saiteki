@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= f.label 'ひとこと説明' %><br />
+    <%= f.text_field :description, placeholder: '20文字まで', maxlength: "20" %>
+  </div>
+
+  <div class="field">
     <%= f.label '学年' %><br />
     <%= f.collection_select(:grade_id, Grade.all, :id, :name, {}, {class:"select-box", id:"article-grade"}) %>
   </div>

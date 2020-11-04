@@ -1,6 +1,30 @@
-<h1>投稿された記事の個別ページ</h1>
-<%= @article.title %>
-<%= @article.grade.name %>
-<%= @article.subject.name %>
-<%= @article.genre.name %>
-<%= @article.content %>
+<div class="show-article">
+  <div class="show-title">
+    <%= @article.title %>
+  </div>
+  <div class="show-created-at">
+    作成日：<%= l @article.created_at %>
+  </div>
+  <div class="show-updated-at">
+    <% if @article.created_at != @article.updated_at %>
+      更新日：<%= l @article.updated_at %>
+    <% end %>
+  </div>
+  <div class="show-info">
+    <div class="show-grade">
+      <%= @article.grade.name %>
+    </div>
+    <div class="show-subject">
+      <%= @article.subject.name %>
+    </div>
+    <div class="show-genre">
+      <%= @article.genre.name %>
+    </div>
+  </div>
+  <div class="show-content">
+    <%= markdown("#{@article.content}").html_safe %>
+  </div>
+  <div class="show-comments">
+    コメント欄
+  </div>
+</div>

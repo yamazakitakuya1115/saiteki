@@ -10,8 +10,9 @@ a:hover {
 
 .index-article-field {
   background-color: white;
-  width: 250px;
-  display: block;
+  width: 500px;
+  display: flex;
+  margin-bottom: 20px;
 }
 
 .index-article-title {
@@ -19,7 +20,7 @@ a:hover {
   margin-bottom: 10px;
 }
 
-.index-article-content {
+.index-article-description {
   font-size: 16px;
   white-space: pre-line;
 }
