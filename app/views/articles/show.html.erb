@@ -1,0 +1,38 @@
+<div class="show-article">
+  <div class="show-title">
+    <%= @article.title %>
+  </div>
+  <div class="show-created-at">
+    作成日：<%= l @article.created_at %>
+  </div>
+  <div class="show-updated-at">
+    <% if @article.created_at != @article.updated_at %>
+      更新日：<%= l @article.updated_at %>
+    <% end %>
+  </div>
+  <div class="show-info">
+    <div class="show-grade">
+      <a href="" class="show-btn">
+        <%= @article.grade.name %>
+      </a>
+    </div>
+    <div class="show-subject">
+      <a href="" class="show-btn">
+        <%= @article.subject.name %>
+      </a>
+    </div>
+    <div class="show-genre">
+      <a href="" class="show-btn">
+        <%= @article.genre.name %>
+      </a>
+    </div>
+  </div>
+  <div class="show-content">
+    <div class="show-article-content-box">
+      <%= markdown("#{@article.content}").html_safe %>
+    </div>
+  </div>
+  <div class="show-comments">
+    コメント欄
+  </div>
+</div>

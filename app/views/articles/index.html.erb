@@ -1,2 +1,18 @@
+<h1>main-content</h1>
 
-    main-contents<br>
+<% if @articles.exists? %>
+  <% @articles.each do |article| %>
+    <% if article.release == true %>
+      <%= link_to article_path(article.id) do %>
+        <div class="index-article-field">
+          <div class="index-article-title">
+            <%= article.title %>
+          </div>
+          <div class="index-article-description">
+            <%= article.description %>
+          </div>
+        </div>
+      <% end %>
+    <% end%>
+  <% end %>
+<% end %>

@@ -4,12 +4,12 @@
 
   <div class="field">
     <%= f.label 'アカウント名（登録後は変更できません）' %><br />
-    @<%= f.text_field :account, placeholder: "半角英数20字まで", autofocus: true, maxlength: "20" %>
+    @<%= f.text_field :account, placeholder: "半角英数 20文字まで", autofocus: true, maxlength: "20" %>
   </div>
 
   <div class="field">
     <%= f.label 'ユーザー名' %><br />
-    <%= f.text_field :name, placeholder: "かな＆英数 30字まで", maxlength: "30" %>
+    <%= f.text_field :name, placeholder: "かな＆英数 30文字まで", maxlength: "30" %>
   </div>
 
   <div class="field">
@@ -23,6 +23,11 @@
   </div>
 
   <div class="field">
+    <%= f.label '近況・ひとこと' %><br />
+    <%= f.text_field :tweet, placeholder: "かな＆英数 30文字まで" %>
+  </div>
+
+  <div class="field">
     <%= f.label '都道府県' %>
     <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
   </div>
@@ -30,7 +35,7 @@
   <div class="field">
     <%= f.label 'パスワード' %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 文字以上)</em>
+    <em>(英数混合で<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>

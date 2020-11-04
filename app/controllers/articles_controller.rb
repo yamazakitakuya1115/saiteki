@@ -3,6 +3,8 @@ class ArticlesController < ApplicationController
 
 
   def index
+    @index_page = true
+    @articles = Article.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -10,7 +12,6 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    binding.pry
     @article = Article.new(article_params)
     if @article.save
       redirect_to root_path
@@ -19,9 +20,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show
+    @show_page = true
+    @article = Article.find(params[:id])
+  end
+
   private
 
   def article_params
-    params.require(:article).permit(:title, :grade_id, :subject_id, :genre_id, :content, :release).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :description, :grade_id, :subject_id, :genre_id, :content, :release).merge(user_id: current_user.id)
   end
 end

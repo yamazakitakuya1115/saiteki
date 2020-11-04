@@ -14,9 +14,10 @@ ActiveRecord::Schema.define(version: 2020_11_02_090915) do
 
   create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "grade_id", null: false
-    t.integer "genre_id", null: false
     t.integer "subject_id", null: false
+    t.integer "genre_id", null: false
     t.string "title", null: false
+    t.string "description"
     t.text "content", null: false
     t.boolean "release", default: false, null: false
     t.bigint "user_id", null: false
@@ -30,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_11_02_090915) do
     t.string "account", null: false
     t.integer "prefecture_id", null: false
     t.text "profile"
+    t.string "tweet"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

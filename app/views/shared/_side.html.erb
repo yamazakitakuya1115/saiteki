@@ -1,9 +1,10 @@
 <h1>main-side</h1>
-<% if user_signed_in? %>
-<%= current_user.name %>さんはログインしています<br />
-  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-  <%= link_to '投稿する', new_article_path %>
-<% else %>
-  <%= link_to 'ログイン', new_user_session_path %>
-  <%= link_to '新規登録', new_user_registration_path %>
-<% end %>  
+
+<% if @index_page %>
+  トップページ
+<% end %>
+
+<% if @show_page %>
+  作成者：<%= @article.user.name %><br />
+  <%= @article.description %>
+<% end %>
