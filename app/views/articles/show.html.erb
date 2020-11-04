@@ -12,17 +12,25 @@
   </div>
   <div class="show-info">
     <div class="show-grade">
-      <%= @article.grade.name %>
+      <a href="" class="show-btn">
+        <%= @article.grade.name %>
+      </a>
     </div>
     <div class="show-subject">
-      <%= @article.subject.name %>
+      <a href="" class="show-btn">
+        <%= @article.subject.name %>
+      </a>
     </div>
     <div class="show-genre">
-      <%= @article.genre.name %>
+      <a href="" class="show-btn">
+        <%= @article.genre.name %>
+      </a>
     </div>
   </div>
   <div class="show-content">
-    <%= markdown("#{@article.content}").html_safe %>
+    <div class="show-article-content-box">
+      <%= markdown("#{@article.content}").html_safe %>
+    </div>
   </div>
   <div class="show-comments">
     コメント欄

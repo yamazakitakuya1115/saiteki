@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
 
   def index
+    @index_page = true
     @articles = Article.includes(:user).order('created_at DESC')
   end
 
@@ -20,6 +21,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @show_page = true
     @article = Article.find(params[:id])
   end
 

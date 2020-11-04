@@ -9,6 +9,7 @@
 
 .show-grade {
   margin: 0 20px;
+
 }
 
 .show-subject {
@@ -22,6 +23,46 @@
 .show-content {
   margin: 20px 0;
 }
+
+a.show-btn {
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  -webkit-box-shadow: 3px 3px 0 #000;
+  box-shadow: 3px 3px 0 #000;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: black;
+}
+a.show-btn:hover {
+  -webkit-box-shadow: -3px -3px 0 #000;
+  box-shadow: -3px -3px 0 #000;
+  color: orange;
+}
+
+.show-article-content-box {
+    margin:2em 0;
+    position: relative;
+    padding: 0.5em 1.5em;
+    border-top: solid 2px gray;
+    border-bottom: solid 2px gray;
+}
+.show-article-content-box:before, .show-article-content-box:after{
+    content: '';
+    position: absolute;
+    top: -10px;
+    width: 2px;
+    height: -webkit-calc(100% + 20px);
+    height: calc(100% + 20px);
+    background-color: gray;
+}
+.show-article-content-box:before {left: 10px;}
+.show-article-content-box:after {right: 10px;}
+.show-article-content-box p {
+    margin: 0; 
+    padding: 0;
+}
+
 
 .show-article>h1{
   font-size: 32px;
