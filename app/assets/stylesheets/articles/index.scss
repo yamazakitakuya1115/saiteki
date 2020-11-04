@@ -23,4 +23,9 @@ a:hover {
 .index-article-description {
   font-size: 16px;
   white-space: pre-line;
+  color: black;
+}
+
+.index-article-description:hover {
+  text-decoration: none;
 }
