@@ -44,7 +44,7 @@
               <%# 投稿ユーザー %>
               <div class="index-article-user-info">
                 <div class="index-article-user-name">
-                  <%= article.user.name %>
+                  <%= link_to "#{article.user.name}", user_path(article.user_id) %>
                 </div>
                 <div class="index-article-user-account">
                   @<%= article.user.account %>
