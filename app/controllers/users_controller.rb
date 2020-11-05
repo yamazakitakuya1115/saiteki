@@ -1,17 +1,17 @@
 class UsersController < ApplicationController
 
   def show
-    @user_show = true
+    @user_show_page = true
     @user = User.find(params[:id])
   end
 
   def edit
-    @user_edit = true
+    @user_edit_page = true
     @user = User.find(params[:id])
   end
 
   def update
-    @user_edit = true
+    @user_edit_page = true
     @user = User.find(params[:id])
     if @user.update(user_params)
       sign_in(@user, bypass: true) if current_user.id == @user.id
