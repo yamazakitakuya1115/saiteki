@@ -14,4 +14,5 @@ class User < ApplicationRecord
   validates :prefecture_id, numericality: { other_than: 0, message: "を選択してください" }
 
   has_many :articles
+  has_one_attached :image
 end
