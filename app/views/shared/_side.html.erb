@@ -5,8 +5,9 @@
 <% end %>
 
 <% if @show_page %>
-  <% if @article.user_id == current_user.id %>
-    <%= link_to '記事を編集する', edit_article_path(@article) %>
+  <% if user_signed_in? && @article.user_id == current_user.id %>
+    <%= link_to '記事を編集する', edit_article_path(@article) %><br />
+    <%= link_to '記事を削除する', article_path(@article), method: :delete,  data: { confirm: "商品を削除しますか？" } %>
   <% end %>
 
 
