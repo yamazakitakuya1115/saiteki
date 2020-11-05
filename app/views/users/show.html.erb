@@ -1,0 +1,14 @@
+<h1>ユーザー情報</h1>
+  <%= image_tag 'default-icon.png', class: "side-user-icon" unless @user.image.attached? %><br />
+  <%= image_tag @user.image, class: "side-user-icon" if @user.image.attached? %><br />
+
+  名前：<%= @user.name %><br />
+  アカウント名：@<%= @user.account %><br />
+  <% if user_signed_in? && @user.id == current_user.id %>
+    メールアドレス：<%= @user.email %>（他のユーザーには表示されません）<br />
+  <% end %>
+  <div class="users-show-profile">
+    プロフィール文：<%= @user.profile %>
+  </div>
+  近況・ひとこと：<%= @user.tweet %><br />
+  都道府県：<%= @user.prefecture.name %>
