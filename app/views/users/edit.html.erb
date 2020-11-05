@@ -1,0 +1,67 @@
+<h1>ユーザー情報編集</h1>
+<%= form_with(model: @user, url: user_path, method: :patch, local: true) do |f| %>
+
+  <div class="new-user-icon-upload" id="new-user-icon-upload">
+      <%= image_tag 'default.png', class: "sign-up-icon", id: "new-user-icon-preview" %>
+  <div id="image-preview"></div>
+    <p>
+      クリックしてファイルをアップロード
+    </p>
+    <%= f.file_field :image, id:"new-user-icon-select" %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'アカウント名（登録後は変更できません）' %><br />
+    @<%= @user.account %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'ユーザー名' %><br />
+    <%= f.text_field :name, placeholder: "かな＆英数 30文字まで", maxlength: "30" %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'メールアドレス' %><br />
+    <%= f.email_field :email %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'プロフィール文' %><br />
+    <%= f.text_area :profile %>
+  </div>
+
+  <div class="field">
+    <%= f.label '近況・ひとこと' %><br />
+    <%= f.text_field :tweet, placeholder: "かな＆英数 30文字まで" %>
+  </div>
+
+  <div class="field">
+    <%= f.label '都道府県' %>
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label '現在のパスワード' %>
+    <% if @minimum_password_length %>
+    <em>(英数混合で<%= @minimum_password_length %> 文字以上)</em>
+    <% end %><br />
+    <%= f.password_field :current_password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label '新しいパスワード' %>
+    <% if @minimum_password_length %>
+    <em>(英数混合で<%= @minimum_password_length %> 文字以上)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label '新しいパスワード（確認）' %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "ユーザー情報を編集する" %>
+  </div>
+<% end %>
