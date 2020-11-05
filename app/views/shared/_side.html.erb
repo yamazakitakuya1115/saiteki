@@ -7,6 +7,7 @@
 <% if @show_page %>
   <%= image_tag 'default-icon.png', class: "side-user-icon" unless @article.user.image.attached? %><br />
   <%= image_tag @article.user.image, class:"side-user-icon" if @article.user.image.attached? %><br />
-  作成者：<%= @article.user.name %><br />
+  投稿者：<%= @article.user.name %><br />
+  <%= @article.user.tweet %><br />
   <%= @article.description %>
 <% end %>

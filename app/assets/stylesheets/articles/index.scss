@@ -10,21 +10,23 @@ a:hover {
 
 .index-article-field {
   background-color: white;
-  width: 500px;
+  width: 80%;
   display: flex;
+  justify-content: space-around;
   margin-bottom: 20px;
   color: black;
 }
 
 .index-article-user-image {
+  margin: 0 auto;
 }
 
 .index-article-right {
+  width: 65%;
 }
 
 .index-article-title {
   font-size: 22px;
-  margin-bottom: 10px;
 }
 
 .index-article-info {
@@ -73,9 +75,20 @@ a.index-article-info-btn:hover {
 }
 
 .index-article-user-info {
-  display: flex;
+}
+
+.index-article-user-name {
+}
+
+.index-article-user-account {
+  font-size: 14px;
+  color: gray;
 }
 
 .index-article-by {
   text-align: right;
+}
+
+.index-article-created-at,.index-article-updated-at {
+  font-size: 16px;
 }
