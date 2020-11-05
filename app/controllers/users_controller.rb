@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def show
+    @user_show = true
     @user = User.find(params[:id])
   end
 
@@ -10,12 +11,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user_edit = true
     @user = User.find(params[:id])
     if @user.update(user_params)
       sign_in(@user, bypass: true) if current_user.id == @user.id
       redirect_to root_path
     else
-      binding.pry
       render :edit
     end
   end
