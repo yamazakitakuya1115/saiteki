@@ -12,4 +12,5 @@
 </div>
 近況・ひとこと：<%= @user.tweet %><br />
 都道府県：<%= @user.prefecture.name %><br />
-<%= link_to 'ユーザー情報編集ページへ', edit_user_path(@user) if user_signed_in? && @user.id == current_user.id %>
+<%= link_to 'ユーザー情報編集ページへ', edit_user_path(@user) if user_signed_in? && @user.id == current_user.id %><br />
+<%= link_to "#{@user.name}さんの投稿一覧", user_mine_path(params[:id]) %>
