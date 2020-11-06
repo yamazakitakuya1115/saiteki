@@ -1,0 +1,77 @@
+<%= "#{@user.name}の投稿内容" %>
+
+<% if @articles.exists? %>
+  <% @articles.each do |article| %>
+    <% if article.user_id == @user.id %>
+      <% if article.release == true || (user_signed_in? && article.user_id == current_user.id) %>
+          <div class="index-article-field">
+            <%# ユーザーのアイコン画像 %>
+            <div class="index-article-user-image">
+              <%= image_tag 'default-icon.png', class: "side-user-icon" unless article.user.image.attached? %>
+              <%= image_tag article.user.image, class: "side-user-icon" if article.user.image.attached? %>
+                <%# 投稿ユーザー %>
+                <div class="index-article-user-info">
+                  <div class="index-article-user-name">
+                    <%= link_to "#{article.user.name}", user_path(article.user_id) %>
+                  </div>
+                  <div class="index-article-user-account">
+                    @<%= article.user.account %>
+                  </div>
+                </div>
+            </div>
+            <%# 記事一覧表示の右側 %>
+            <div class="index-article-right">
+        <%= link_to article_path(article.id), class: "index-article-link" do %>
+              <%# 記事タイトル %>
+              <div class="index-article-title">
+                <%= article.title %>
+              </div>
+        <% end %>
+              <% if user_signed_in? && article.release == false %>
+                <div class="mine-article-secret">
+                  非公開記事
+                </div>
+              <% end %>
+              <%# 記事の内容 %>
+              <div class="index-article-info">
+                <%# 記事のカテゴリー %>
+                <div class="index-grade">
+                  <a href="" class="index-article-info-btn">
+                    <%= article.grade.name %>
+                  </a>
+                </div>
+                <div class="index-subject">
+                  <a href="" class="index-article-info-btn">
+                    <%= article.subject.name %>
+                  </a>
+                  </div>
+                <div class="index-genre">
+                  <a href="" class="index-article-info-btn">
+                    <%= article.genre.name %>
+                  </a>
+                </div>
+              </div>
+              <%# 記事のひとこと説明 %>
+              <div class="index-article-description">
+                <%= article.description %>
+              </div>
+              <%# 投稿ユーザーと時刻 %>
+              <div class="index-article-by">
+                <%# 投稿日時と更新日時 %>
+                <div class="index-article-time">
+                  <div class="index-article-created-at">
+                    投稿日時：<%= l article.created_at %>
+                  </div>
+                  <div class="index-article-updated-at">
+                    <% if article.created_at != article.updated_at %>
+                      更新日時：<%= l article.updated_at %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

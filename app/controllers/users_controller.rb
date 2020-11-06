@@ -21,6 +21,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def mine
+    @articles = Article.includes(:user).order('created_at DESC')
+    @user = User.find(params[:user_id])
+  end
+
   def user_params
     params.require(:user).permit(:account, :name, :tweet, :prefecture_id, :profile, :image, :email, :password).merge(id: current_user.id)
   end

@@ -4,5 +4,7 @@ Rails.application.routes.draw do
     resources :comments, only: :create
   end
   root to: 'articles#index'
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    get 'mine' => 'users#mine'
+  end
 end
