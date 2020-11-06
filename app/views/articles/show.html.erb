@@ -41,7 +41,7 @@
       <% end %>
     <% end %>
     <p>コメント投稿フォーム</p>
-    <%= form_with url: article_comments_path(@article), locals: true do |f| %>
+    <%= form_with model:@comment, url: article_comments_path(@article), local: true do |f| %>
       <div class="show-comment-form">
         <%= f.text_area :message, placeholder: "コメントを入力してください", maxlength: 500 %>
       </div>
