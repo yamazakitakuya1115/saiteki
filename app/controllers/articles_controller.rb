@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
   def show
     @show_page = true
     @article = Article.find(params[:id])
+    @comments = Comment.includes(:article)
   end
 
   def edit

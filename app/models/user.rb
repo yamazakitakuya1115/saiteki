@@ -17,4 +17,5 @@ class User < ApplicationRecord
 
   has_many :articles
   has_one_attached :image
+  has_many :comments
 end
