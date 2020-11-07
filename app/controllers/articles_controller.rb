@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, only: [:new]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :update, :destroy]
 
 
   def index
@@ -22,20 +24,17 @@ class ArticlesController < ApplicationController
 
   def show
     @show_page = true
-    @article = Article.find(params[:id])
-    @comments = Comment.includes(:article)
-    @comment = Comment.new
+    if @article.release == false
+      redirect_to root_path
+    end
   end
 
   def edit
     @article_edit_page = true
-    @article = Article.find(params[:id])
   end
 
   def update
-    @article = Article.find(params[:id])
-    article = Article.find(params[:id])
-    if article.update(article_params)
+    if @article.update(article_params)
       redirect_to root_path
     else
       render :edit
@@ -43,8 +42,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    article = Article.find(params[:id])
-    article.destroy
+    @article.destroy
     redirect_to root_path
   end
 
@@ -53,4 +51,16 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :description, :grade_id, :subject_id, :genre_id, :content, :release).merge(user_id: current_user.id)
   end
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  def move_to_index
+    # ログインしている投稿したユーザー以外はリダイレクト
+    unless user_signed_in? && @article.user_id == current_user.id
+      redirect_to root_path
+    end
+  end
+
 end
