@@ -41,11 +41,15 @@
       <% end %>
     <% end %>
     <p>コメント投稿フォーム</p>
-    <%= form_with model:@comment, url: article_comments_path(@article), local: true do |f| %>
-      <div class="show-comment-form">
-        <%= f.text_area :message, placeholder: "コメントを入力してください", maxlength: 500 %>
-      </div>
-      <%= f.submit "コメントを投稿する" %>
+    <% if user_signed_in? %>
+      <%= form_with model:@comment, url: article_comments_path(@article), local: true do |f| %>
+        <div class="show-comment-form">
+          <%= f.text_area :message, placeholder: "コメントを入力してください", maxlength: 500 %>
+        </div>
+        <%= f.submit "コメントを投稿する" %>
+      <% end %>
+    <% else %>
+      コメントを投稿するためにはログインが必要です。
     <% end %>
   </div>
 </div>
