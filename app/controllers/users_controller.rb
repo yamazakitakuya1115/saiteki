@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
+  before_action :move_to_index, only: [:edit, :update]
 
   def show
     @user_show_page = true
-    @user = User.find(params[:id])
   end
 
   def edit
     @user_edit_page = true
-    @user = User.find(params[:id])
   end
 
   def update
     @user_edit_page = true
-    @user = User.find(params[:id])
     if @user.update(user_params)
       sign_in(@user, bypass: true) if current_user.id == @user.id
       redirect_to root_path
@@ -26,8 +26,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  private
+
   def user_params
     params.require(:user).permit(:account, :name, :tweet, :prefecture_id, :profile, :image, :email, :password).merge(id: current_user.id)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in? && @user.id == current_user.id
+      redirect_to root_path
+    end
   end
 
 end

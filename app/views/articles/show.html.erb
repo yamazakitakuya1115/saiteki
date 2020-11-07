@@ -33,11 +33,11 @@
     </div>
   </div>
   <div class="show-comments">
-    <% if @comments.exists? %>
-      <% @comments.each do |comment| %>
+    <% if @article.comments.exists? %>
+      <% @article.comments.each do |comment| %>
         <%= comment.message %><br />
         <%= comment.user.name %><br/>
-        <%= l comment.created_at %>
+        <%= l comment.created_at %><br />
       <% end %>
     <% end %>
     <p>コメント投稿フォーム</p>
