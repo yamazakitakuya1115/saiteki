@@ -32,7 +32,8 @@
       <%= markdown("#{@article.content}").html_safe %>
     </div>
   </div>
-  <div class="show-comments">
+  <div class="show-comments" id="comments">
+  コメント一覧<br />
     <% if @article.comments.exists? %>
       <% @article.comments.each do |comment| %>
         <%= comment.message %><br />

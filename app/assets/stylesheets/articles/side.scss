@@ -3,5 +3,14 @@
   height: 100px;       /* ※縦横を同値に */
   border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
   object-fit: cover;
-  border: 2px solid rgb(0, 85, 114);
+  border: 2px solid white;
+}
+
+.side-user-icon:hover {
+  width:  100px;       /* ※縦横を同値に */
+  height: 100px;       /* ※縦横を同値に */
+  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  object-fit: cover;
+  border: 2px solid orange;
+  opacity: 0.5;
 }

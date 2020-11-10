@@ -1,13 +1,26 @@
 <div class="top-header">
-  <%= link_to 'さいてき', root_path, class: "site-title" %>
+  <div class="top-parts-logo">
+    <%= link_to root_path do %>
+      <%= image_tag 'logo.png', class: "parts-logo" %>
+    <% end %>
+  </div>
   <div class="header-user">
     <% if user_signed_in? %>
-      <%= current_user.name %>さんはログインしています<br />
-      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-      <%= link_to '投稿する', new_article_path %>
+    <%# ログインしている場合に表示 %>
+      <div>
+        <%= image_tag current_user.image, class: "header-user-icon"%>
+      </div>
+      <div>
+        <%=link_to current_user.name, user_path(current_user) %><br />
+        <%= link_to '投稿する', new_article_path %><br />
+        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+      </div>
     <% else %>
-      <%= link_to 'ログイン', new_user_session_path %>
+    <%# ログインしていない場合に表示 %>
+    <div>
+      <%= link_to 'ログイン', new_user_session_path %><br />
       <%= link_to '新規登録', new_user_registration_path %>
+    </div>
     <% end %>
   </div>
 </div>

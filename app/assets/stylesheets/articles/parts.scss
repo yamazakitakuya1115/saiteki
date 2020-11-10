@@ -1,10 +1,40 @@
 // ヘッダー部分
 .top-header {
-  background-color: rgb(255, 224, 124);
+  background-color: rgb(255, 241, 195);
   width: 100vw;
-  height: 10vh;
+  height: 75px;
   display: flex;
   justify-content: space-between;
+}
+
+.top-parts-logo {
+  margin-left: 10px;
+}
+
+.parts-logo {
+  width: 194px;
+  height: 75px;
+}
+
+.header-user-icon {
+  width:  65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.header-user-icon:hover {
+  border: 2px solid orange;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.header-user {
+  display: flex;
+  align-items: center;
+  width: 20vw;
+  min-width: 180px;
 }
 
 .site-title {
@@ -28,7 +58,7 @@
 }
 
 .main-contents {
-  background-color: lightgreen;
+  // background-color: lightgreen;
   margin: 20px 0;
   padding: 10px 0;
   width: 80%;

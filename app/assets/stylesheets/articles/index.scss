@@ -8,22 +8,34 @@ a:hover {
   text-decoration: underline;
 }
 
+.index-article {
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
 .index-article-field {
   background-color: white;
   width: 80%;
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin: 0 0 20px 20px;
+  padding: 5px;
   color: black;
+  border: solid 3px gray;
+  border-radius: 20px;
 }
 
-.index-article-user-image {
+.index-artile-user-image {
   margin: 0 auto;
   width: 200px;
 }
 
+.index-article-left {
+  width: 150px;
+}
+
 .index-article-right {
-  width: 65%;
+  width: 100%;
 }
 
 .index-article-title {
@@ -88,6 +100,15 @@ a.index-article-info-btn:hover {
 
 .index-article-by {
   text-align: right;
+}
+
+.index-article-comments {
+  font-size: 16px;
+}
+
+.index-article-comments-bold {
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .index-article-created-at,.index-article-updated-at {

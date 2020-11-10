@@ -25,7 +25,9 @@ class ArticlesController < ApplicationController
   def show
     @show_page = true
     if @article.release == false
-      redirect_to root_path
+      unless user_signed_in? && @article.user_id == current_user.id
+        redirect_to root_path
+      end
     end
   end
 

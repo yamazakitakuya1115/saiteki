@@ -1,21 +1,34 @@
 <h1>main-content</h1>
-
+<div class="index-article">
 <% if @articles.exists? %>
   <% @articles.each do |article| %>
     <% if article.release == true %>
-      <%= link_to article_path(article.id), class: "index-article-link" do %>
+
         <div class="index-article-field">
+          <div class="index-article-left">
+
           <%# ユーザーのアイコン画像 %>
           <div class="index-article-user-image">
-            <%= image_tag 'default-icon.png', class: "side-user-icon" unless article.user.image.attached? %>
-            <%= image_tag article.user.image, class: "side-user-icon" if article.user.image.attached? %>
+            <%= link_to user_path(article.user_id) do %>
+              <%= image_tag 'default-icon.png', class: "side-user-icon" unless article.user.image.attached? %>
+              <%= image_tag article.user.image, class: "side-user-icon" if article.user.image.attached? %>
+            <% end %>
           </div>
+              <%# 投稿ユーザー %>
+              <div class="index-article-user-info">
+                <div class="index-article-user-name">
+                  <%= link_to "#{article.user.name}", user_path(article.user_id) %>
+                </div>
+                <div class="index-article-user-account">
+                  @<%= article.user.account %>
+                </div>
+              </div>
+          </div>
+
           <%# 記事一覧表示の右側 %>
           <div class="index-article-right">
             <%# 記事タイトル %>
-            <div class="index-article-title">
-              <%= article.title %>
-            </div>
+            <%= link_to "#{article.title}", article_path(article.id), class:"index-article-title" %>
             <%# 記事の内容 %>
             <div class="index-article-info">
               <%# 記事のカテゴリー %>
@@ -39,16 +52,14 @@
             <div class="index-article-description">
               <%= article.description %>
             </div>
-            <%# 投稿ユーザーと時刻 %>
+            <%# コメント数と時刻 %>
             <div class="index-article-by">
-              <%# 投稿ユーザー %>
-              <div class="index-article-user-info">
-                <div class="index-article-user-name">
-                  <%= link_to "#{article.user.name}", user_path(article.user_id) %>
-                </div>
-                <div class="index-article-user-account">
-                  @<%= article.user.account %>
-                </div>
+              <div class="index-article-comments">
+              <% if article.comments.length >= 1 %>
+                <%= link_to "コメント(#{article.comments.length})", "articles/#{article.id}#comments", class: "index-article-comments-bold" %>
+              <% else %>
+                コメント(<%= article.comments.length %>)
+              <% end %>
               </div>
               <%# 投稿日時と更新日時 %>
               <div class="index-article-time">
@@ -65,7 +76,8 @@
             </div>
           </div>
         </div>
-      <% end %>
+ 
     <% end%>
   <% end %>
 <% end %>
+</div>
