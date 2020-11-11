@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user_show_page = true
+    @tweet = Tweet.find_by(user_id: @user.id)
   end
 
   def edit
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:account, :name, :tweet, :prefecture_id, :profile, :image, :email, :password).merge(id: current_user.id)
+    params.require(:user).permit(:account, :name, :prefecture_id, :image, :email, :password).merge(id: current_user.id)
   end
 
   def set_user

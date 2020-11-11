@@ -7,10 +7,22 @@
 <% if user_signed_in? && @user.id == current_user.id %>
   メールアドレス：<%= @user.email %>（他のユーザーには表示されません）<br />
 <% end %>
+プロフィール文：
 <div class="users-show-profile">
-  プロフィール文：<%= @user.profile %>
+  <% if @user.tweet != nil %>
+    <%= @user.tweet.profile %>
+  <% else %>
+    なし
+  <% end %>
 </div>
-近況・ひとこと：<%= @user.tweet %><br />
+<div>
+    近況・ひとこと：
+  <% if @user.tweet != nil %><%= @user.tweet.hitokoto %>
+  <% else %>
+    なし
+  <% end %>
+</div>
 都道府県：<%= @user.prefecture.name %><br />
 <%= link_to 'ユーザー情報編集ページへ', edit_user_path(@user) if user_signed_in? && @user.id == current_user.id %><br />
+<%= link_to 'ひとこと・プロフィール編集ページへ', new_user_tweet_path(@user) if user_signed_in? && @user.id == current_user.id %><br />
 <%= link_to "#{@user.name}さんの投稿一覧", user_mine_path(params[:id]) %>

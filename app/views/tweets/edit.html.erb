@@ -1,0 +1,14 @@
+  <h1>ツイート編集<h1>
+  <%= form_with(model: @tweet, url: user_tweet_path(@tweet), method: :patch, local: true) do |f| %>
+    <div class="tweet-hitokoto">
+      <%= f.text_field :hitokoto, placeholder: "ひとことを入力(30字以内）", maxlength: 30 %>
+    </div>
+
+    <div class="tweet-profile">
+      <%= f.text_area :profile, placeholder: "プロフィールを入力(1000字以内)", maxlength: 1000 %>
+    </div>
+
+    <div class="tweet-submit">
+      <%= f.submit "編集する" %>
+    </div>
+  <% end %>
