@@ -15,7 +15,7 @@ a:hover {
 
 .index-article-field {
   background-color: white;
-  width: 80%;
+  width: 90%;
   display: flex;
   justify-content: space-around;
   margin: 0 0 20px 20px;
@@ -28,6 +28,7 @@ a:hover {
 .index-artile-user-image {
   margin: 0 auto;
   width: 200px;
+  height: 200px;
 }
 
 .index-article-left {
@@ -91,6 +92,7 @@ a.index-article-info-btn:hover {
 }
 
 .index-article-user-name {
+  font-size: 16px;
 }
 
 .index-article-user-account {

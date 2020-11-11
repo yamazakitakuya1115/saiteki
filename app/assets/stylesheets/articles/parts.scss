@@ -1,6 +1,5 @@
 // ヘッダー部分
 .top-header {
-  background-color: rgb(255, 241, 195);
   width: 100vw;
   height: 75px;
   display: flex;
@@ -98,5 +97,27 @@
     margin: 20px 0;
     padding: 10px 0;
     width: 100%;
+  }
+
+  .header-user-icon {
+    width:  45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+  }
+  
+  .header-user-icon:hover {
+    border: 2px solid orange;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  
+  .header-user {
+    display: flex;
+    align-items: center;
+    width: 20vw;
+    min-width: 180px;
+    font-size:12px;
   }
 }
