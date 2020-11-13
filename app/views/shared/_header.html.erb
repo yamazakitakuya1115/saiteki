@@ -4,23 +4,4 @@
       <%= image_tag 'logo.png', class: "parts-logo" %>
     <% end %>
   </div>
-  <div class="header-user">
-    <% if user_signed_in? %>
-    <%# ログインしている場合に表示 %>
-      <div>
-        <%= image_tag current_user.image, class: "header-user-icon"%>
-      </div>
-      <div>
-        <%=link_to current_user.name, user_path(current_user) %><br />
-        <%= link_to '投稿する', new_article_path %><br />
-        <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-      </div>
-    <% else %>
-    <%# ログインしていない場合に表示 %>
-    <div>
-      <%= link_to 'ログイン', new_user_session_path %><br />
-      <%= link_to '新規登録', new_user_registration_path %>
-    </div>
-    <% end %>
-  </div>
 </div>

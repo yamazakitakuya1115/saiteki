@@ -7,8 +7,8 @@ class TweetsController < ApplicationController
   end
 
   def create
-    Tweet.create(tweet_params)
-    redirect_to root_path
+    tweet = Tweet.create(tweet_params)
+    redirect_to user_path(current_user.id)
   end
 
   def edit
@@ -18,7 +18,7 @@ class TweetsController < ApplicationController
   def update
     tweet = Tweet.find_by(user_id: current_user.id)
     tweet.update(tweet_update_params)
-    redirect_to controller: :users, action: :show
+    redirect_to user_path(current_user.id)
   end
 
 

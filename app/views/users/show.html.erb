@@ -1,12 +1,25 @@
+<div class="show-article">
 <h1>ユーザー情報</h1>
 <%= image_tag 'default-icon.png', class: "side-user-icon" unless @user.image.attached? %><br />
 <%= image_tag @user.image, class: "side-user-icon" if @user.image.attached? %><br />
 
 名前：<%= @user.name %><br />
 アカウント名：@<%= @user.account %><br />
+
 <% if user_signed_in? && @user.id == current_user.id %>
   メールアドレス：<%= @user.email %>（他のユーザーには表示されません）<br />
 <% end %>
+
+都道府県：<%= @user.prefecture.name %><br />
+
+<div>
+    近況・ひとこと：
+  <% if @user.tweet != nil %><%= @user.tweet.hitokoto %>
+  <% else %>
+    なし
+  <% end %>
+</div>
+
 プロフィール文：
 <div class="users-show-profile">
   <% if @user.tweet != nil %>
@@ -15,14 +28,4 @@
     なし
   <% end %>
 </div>
-<div>
-    近況・ひとこと：
-  <% if @user.tweet != nil %><%= @user.tweet.hitokoto %>
-  <% else %>
-    なし
-  <% end %>
 </div>
-都道府県：<%= @user.prefecture.name %><br />
-<%= link_to 'ユーザー情報編集ページへ', edit_user_path(@user) if user_signed_in? && @user.id == current_user.id %><br />
-<%= link_to 'ひとこと・プロフィール編集ページへ', new_user_tweet_path(@user) if user_signed_in? && @user.id == current_user.id %><br />
-<%= link_to "#{@user.name}さんの投稿一覧", user_mine_path(params[:id]) %>

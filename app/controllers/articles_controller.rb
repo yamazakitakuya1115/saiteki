@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @articles_new_page = true
   end
 
   def create
@@ -48,6 +49,9 @@ class ArticlesController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+  end
+
   private
 
   def article_params
@@ -55,7 +59,7 @@ class ArticlesController < ApplicationController
   end
 
   def set_article
-    @article = Article.find(params[:id])
+    @article = Article.find(params[:id].to_i)
   end
 
   def move_to_index

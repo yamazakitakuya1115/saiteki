@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   end
 
   def mine
+    @mine_page = true
     @articles = Article.includes(:user).order('created_at DESC')
     @user = User.find(params[:user_id])
   end

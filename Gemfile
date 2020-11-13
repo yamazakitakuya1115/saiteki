@@ -64,3 +64,5 @@ gem 'redcarpet', '~>2.3.0'
 gem 'coderay'
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
+gem 'ransack'
+gem "aws-sdk-s3", require: false

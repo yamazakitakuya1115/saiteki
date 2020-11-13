@@ -8,21 +8,29 @@ a:hover {
   text-decoration: underline;
 }
 
+body {
+  background-color: rgb(203, 255, 208);
+}
+
 .index-article {
   flex-direction: column;
   flex-wrap: wrap;
 }
 
 .index-article-field {
-  background-color: white;
+  padding: 0.5em 1em;
+  margin: 20px 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   width: 90%;
   display: flex;
   justify-content: space-around;
-  margin: 0 0 20px 20px;
-  padding: 5px;
-  color: black;
-  border: solid 3px gray;
-  border-radius: 20px;
+}
+.index-article-field p {
+  margin: 0; 
+  padding: 0;
 }
 
 .index-artile-user-image {
@@ -86,6 +94,22 @@ a.index-article-info-btn:hover {
   box-shadow: -3px -3px 0 #000;
   color: orange;
   text-decoration: underline;
+}
+
+.index-article-not-release {
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #444;
+  -webkit-box-shadow: 2px 2px 0 #000;
+  box-shadow: 2px 2px 0 #000;
+  padding: 3px 5px;
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+}
+
+.index-article-not-release-font {
+  color: white;
 }
 
 .index-article-user-info {
