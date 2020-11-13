@@ -1,3 +1,12 @@
+.show-article {
+  padding: 0.5em 1em;
+  margin: 0 10px 0 0;
+  color: #5d627b;
+  background: white;
+  border-top: solid 5px #5d627b;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+}
+
 .show-title {
   font-size: 40px;
 }
@@ -42,28 +51,8 @@ a.show-btn:hover {
 }
 
 .show-article-content-box {
-    margin:2em 0;
-    position: relative;
-    padding: 0.5em 1.5em;
-    border-top: solid 2px gray;
-    border-bottom: solid 2px gray;
+    padding: 10px;
 }
-.show-article-content-box:before, .show-article-content-box:after{
-    content: '';
-    position: absolute;
-    top: -10px;
-    width: 2px;
-    height: -webkit-calc(100% + 20px);
-    height: calc(100% + 20px);
-    background-color: gray;
-}
-.show-article-content-box:before {left: 10px;}
-.show-article-content-box:after {right: 10px;}
-.show-article-content-box p {
-    margin: 0; 
-    padding: 0;
-}
-
 
 .show-article>h1{
   font-size: 32px;
@@ -96,4 +85,67 @@ a.show-btn:hover {
 
 .show-article>strong {
   font-weight: bold;
+}
+
+
+.show-article-comments-box {
+  position: relative;
+  margin: 100px 0 50px 0;
+  padding: 0;
+  border: solid 3px #62c1ce;
+}
+.show-article-comments-box
+.show-article-comments-box-title {
+  position: absolute;
+  display: inline-block;
+  top: -27px;
+  left: -3px;
+  padding: 0 20px;
+  height: 25px;
+  line-height: 25px;
+  font-size: 20px;
+  background: #62c1ce;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px 5px 0 0;
+}
+
+.show-comment-info {
+  display: flex;
+}
+
+.show-comment-info-right-time {
+  position: absolute;
+  right: 20px;
+}
+
+.show-article-comment {
+  padding: 10px;
+  border: solid 10px #62c1ce;
+}
+
+.show-comment-form {
+  width: 100%;
+}
+
+.show-comment-user-icon {
+  width:  50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.show-comment-user-icon:hover {
+  width:  50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid orange;
+  opacity: 0.5;
+}
+
+.show-comment-content {
+  white-space: pre-line;
+  margin: -20px 0 0 20px;
 }

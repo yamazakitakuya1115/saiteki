@@ -1,34 +1,37 @@
-<h1>ユーザー新規登録</h1>
+<div class="show-article">
+<h1>新規ユーザー登録</h1>
+<p>※すべて入力必須項目です</p>
 <%= form_with(model: @user, url: user_registration_path, local: true) do |f| %>
-  <%= render "devise/shared/error_messages" %>
-
+  <div class="new-error-messages">
+    <%= render "devise/shared/error_messages" %>
+  </div>
   <div class="new-user-icon-upload" id="new-user-icon-upload">
       <%= image_tag 'default.png', class: "sign-up-icon", id: "new-user-icon-preview" %>
   <div id="image-preview"></div>
     <p>
       クリックしてファイルをアップロード
     </p>
-    <%= f.file_field :image, id:"new-user-icon-select" %>
+    <%= f.file_field :image, id:"new-user-icon-select", class: "new-form-btn" %>
   </div>
 
   <div class="field">
     <%= f.label 'アカウント名（登録後は変更できません）' %><br />
-    @<%= f.text_field :account, placeholder: "半角英数 20文字まで", autofocus: true, maxlength: "20" %>
+    @<%= f.text_field :account, placeholder: "半角英数 20文字まで", autofocus: true, maxlength: "20", class: "new-form" %>
   </div>
 
   <div class="field">
     <%= f.label 'ユーザー名' %><br />
-    <%= f.text_field :name, placeholder: "かな＆英数 30文字まで", maxlength: "30" %>
+    <%= f.text_field :name, placeholder: "かな＆英数 30文字まで", maxlength: "30", class: "new-form" %>
   </div>
 
   <div class="field">
     <%= f.label 'メールアドレス' %><br />
-    <%= f.email_field :email %>
+    <%= f.email_field :email, class: "new-form" %>
   </div>
 
   <div class="field">
     <%= f.label '都道府県' %>
-    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"user-prefecture"}) %>
+    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"new-form-select", id:"user-prefecture"}) %>
   </div>
 
   <div class="field">
@@ -36,17 +39,16 @@
     <% if @minimum_password_length %>
     <em>(英数混合で<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "new-form" %>
   </div>
 
   <div class="field">
     <%= f.label 'パスワード（確認）' %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "new-form" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "新規登録する" %>
+    <%= f.submit "新規登録する", class: "new-button" %>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
+</div>

@@ -1,16 +1,157 @@
+// ログイン中ユーザーの情報
+.side-user-info{
+  position: relative;
+  background: #fff0cd;
+  box-shadow: 0px 0px 0px 5px #fff0cd;
+  border: dashed 2px rgb(255, 195, 83);
+  padding: 10px;
+  color: #454545;
+  margin: 0 5px 20px 5px;
+  text-align: center;
+}
+.side-user-info:after{
+  position: absolute;
+  content: '';
+  right: -7px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #ffdb88 rgb(203, 255, 208) #ffdb88;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.side-user-info p {
+  margin: 0; 
+  padding: 0;
+}
+
 .side-user-icon {
-  width:  100px;       /* ※縦横を同値に */
-  height: 100px;       /* ※縦横を同値に */
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width:  100px;
+  height: 100px;
+  border-radius: 50%;
   object-fit: cover;
   border: 2px solid white;
 }
 
 .side-user-icon:hover {
-  width:  100px;       /* ※縦横を同値に */
-  height: 100px;       /* ※縦横を同値に */
-  border-radius: 50%;  /* 角丸半径を50%にする(=円形にする) */
+  width:  100px;
+  height: 100px;
+  border-radius: 50%;
   object-fit: cover;
   border: 2px solid orange;
   opacity: 0.5;
+}
+
+// 選択したページの情報
+.side-page-info{
+  position: relative;
+  background: #d2f8ff;
+  box-shadow: 0px 0px 0px 5px #d2f8ff;
+  border: dashed 2px lightblue;
+  padding: 10px;
+  color: #454545;
+  margin: 0 5px 20px 5px;
+  text-align: center;
+}
+.side-page-info:after{
+  position: absolute;
+  content: '';
+  right: -7px;
+  top: -7px;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: #a9f2ff rgb(203, 255, 208) #a9f2ff;
+  box-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+.side-page-info p {
+  margin: 0; 
+  padding: 0;
+}
+
+.side-page-info-in {
+  margin: 20px 0;
+}
+
+// オレンジのボタン
+.side-btn-orange,
+a.side-btn-orange {
+  color: white;
+  background-color: #eb6100;
+  border-radius: 100vh;
+  margin: 20px 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 22px;
+}
+.side-btn-orange:hover,
+a.side-btn-orange:hover {
+  color: white;
+  background: #ffb581;
+}
+
+
+// 青のボタン
+.side-btn-blue,
+a.side-btn-blue {
+  color: white;
+  background-color: #2f9bff;
+  border-radius: 100vh;
+  margin: 20px 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 22px;
+}
+.side-btn-blue:hover,
+a.side-btn-blue:hover {
+  color: white;
+  background: #77bdff;
+}
+
+// 青のボタン2
+.side-btn-blue-in,
+a.side-btn-blue-in {
+  color: white;
+  background-color: #2f9bff;
+  border-radius: 100vh;
+  padding: 10px;
+  width: 100%;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 20px 0;
+}
+.side-btn-blue-in:hover,
+a.side-btn-blue-in:hover {
+  color: white;
+  background: #77bdff;
+}
+
+// 緑のボタン
+.side-btn-green,
+a.side-btn-green {
+  color: white;
+  background-color: #00a128;
+  border-radius: 100vh;
+  margin: 20px 0;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 22px;
+}
+.side-btn-green:hover,
+a.side-btn-green:hover {
+  color: white;
+  background: #15db47;
+}
+
+
+
+.side-user-logout {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.side-not-underline>a {
+  text-decoration: none;
+}
+
+.side-not-underline {
+  width: 100%;
 }

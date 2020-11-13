@@ -1,10 +1,4 @@
 // ヘッダー部分
-.top-header {
-  width: 100vw;
-  height: 75px;
-  display: flex;
-  justify-content: space-between;
-}
 
 .top-parts-logo {
   margin-left: 10px;
@@ -49,7 +43,6 @@
 
 // ページ全体の配置
 .main{
-  background-color: lightyellow;
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -66,7 +59,6 @@
 }
 
 .main-side {
-  background-color: lightgray;
   margin: 20px 0;
   padding: 10px 0;
   width: 250px;
@@ -75,17 +67,15 @@
 
 
 
-// スマホ表示
+// スマホ表示 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 @media (max-width: 750px) {
   .main{
-    background-color: lightyellow;
     margin: 0 auto;
     width: 95vw;
     display: block;
   }
   
   .main-contents {
-    background-color: green;
     margin: 20px 0;
     padding: 10px 0;
     width: 100%;
@@ -93,7 +83,6 @@
   }
   
   .main-side {
-    background-color: gray;
     margin: 20px 0;
     padding: 10px 0;
     width: 100%;
@@ -111,13 +100,5 @@
     border: 2px solid orange;
     opacity: 0.5;
     cursor: pointer;
-  }
-  
-  .header-user {
-    display: flex;
-    align-items: center;
-    width: 20vw;
-    min-width: 180px;
-    font-size:12px;
   }
 }

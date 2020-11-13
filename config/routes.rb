@@ -12,4 +12,6 @@ Rails.application.routes.draw do
     resources :tweets, only: [:new, :create, :edit, :update]
   end
 
+  get 'articles/search'
+
 end

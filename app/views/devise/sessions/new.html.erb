@@ -1,5 +1,5 @@
-<h2>ログイン</h2>
-
+<div class="show-article">
+<h1>ログイン</h1>
 <%= form_with(model: @user, url: user_session_path, local: true)  do |f| %>
 
   <div class='login-flash-message'>
@@ -7,18 +7,19 @@
     <%= flash[:alert] %>
   </div>
   
-  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= render "devise/shared/error_messages", resource: resource, class: "new-error-messages" %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "new-form" %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "new-form" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "ログイン" %>
+    <%= f.submit "ログイン", class: "new-button" %>
   </div>
 <% end %>
+</div>

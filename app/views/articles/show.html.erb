@@ -2,6 +2,9 @@
   <div class="show-title">
     <%= @article.title %>
   </div>
+  <div class="show-article-description">
+    <%= @article.description %>
+  </div>
   <div class="show-created-at">
     投稿日時：<%= l @article.created_at %>
   </div>
@@ -26,31 +29,65 @@
         <%= @article.genre.name %>
       </a>
     </div>
+              <% if user_signed_in? && @article.release == false%>
+                <div class="index-article-not-release">
+                  <p class="index-article-not-release-font">非公開になっています</p>
+                </div>
+              <% end %>
   </div>
   <div class="show-content">
     <div class="show-article-content-box">
       <%= markdown("#{@article.content}").html_safe %>
     </div>
   </div>
-  <div class="show-comments" id="comments">
-  コメント一覧<br />
+
+
+
+  <div class="show-article-comments-box" id="comments">
+    <span class="show-article-comments-box-title">
+      <p>コメント
+        (<%= @article.comments.length %>)</p>
+    </span>
     <% if @article.comments.exists? %>
       <% @article.comments.each do |comment| %>
-        <%= comment.message %><br />
-        <%= comment.user.name %><br/>
-        <%= l comment.created_at %><br />
+        <div class="show-article-comment">
+              <div class="show-comment-info-right-time">
+                <%= l comment.created_at %>
+              </div>
+          <div class="show-comment-info">
+            <div class="show-comment-info-left">
+              <%= link_to "/users/#{comment.user_id}" do %>
+                <%= image_tag 'default-icon.png', class: "show-comment-user-icon" unless comment.user.image.attached? %>
+                <%= image_tag comment.user.image, class: "show-comment-user-icon" if comment.user.image.attached? %>
+              <% end %>
+            </div>
+            <div class="show-comment-info-right">
+              <div class="show-comment-info-user">
+                <%= link_to "#{comment.user.name}", user_path(comment.user_id) %><br />
+                @<%= comment.user.account %>
+              </div>
+            </div>
+          </div>
+          <div class="show-comment-content">
+            <%= comment.message %>
+          </div>
+        </div>
       <% end %>
+    <% else %>
+      まだコメントはありません
     <% end %>
-    <p>コメント投稿フォーム</p>
+  </div>
+  <div>
     <% if user_signed_in? %>
+    <p>コメント投稿フォーム</p>
       <%= form_with model:@comment, url: article_comments_path(@article), local: true do |f| %>
-        <div class="show-comment-form">
-          <%= f.text_area :message, placeholder: "コメントを入力してください", maxlength: 500 %>
+        <div>
+          <%= f.text_area :message, placeholder: "コメントを入力してください", maxlength: 500, class: "show-comment-form" %>
         </div>
         <%= f.submit "コメントを投稿する" %>
       <% end %>
     <% else %>
-      コメントを投稿するためにはログインが必要です。
+      ※コメントを投稿するためにはログインが必要です
     <% end %>
   </div>
 </div>

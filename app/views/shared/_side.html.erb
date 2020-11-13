@@ -1,29 +1,106 @@
-<h1>main-side</h1>
-
-<% if @index_page %>
-  トップページ
-<% end %>
-
 <% if @show_page %>
-  <% if user_signed_in? && @article.user_id == current_user.id %>
-    <%= link_to '記事を編集する', edit_article_path(@article) %><br />
-    <%= link_to '記事を削除する', article_path(@article), method: :delete,  data: { confirm: "商品を削除しますか？" } %>
-  <% end %>
-
-
-
-
-  <%= image_tag 'default-icon.png', class: "side-user-icon" unless @article.user.image.attached? %><br />
-  <%= image_tag @article.user.image, class:"side-user-icon" if @article.user.image.attached? %><br />
-  投稿者：<%= link_to "#{@article.user.name}", user_path(@article.user_id) %><br />
-  <%= @article.user.tweet %><br />
-  <%= @article.description %>
+  <div class="side-page-info">
+    この記事の投稿者
+    <%= image_tag 'default-icon.png', class: "side-user-icon" unless @article.user.image.attached? %><br />
+    <%= image_tag @article.user.image, class:"side-user-icon" if @article.user.image.attached? %><br />
+    <%= link_to "#{@article.user.name}", user_path(@article.user_id) %><br />
+    @<%= @article.user.account %><br />
+    <%= @article.user.tweet.hitokoto if @article.user.tweet %><br />
+    <% if user_signed_in? && @article.user_id == current_user.id %>
+      <div class="side-page-info-in">
+        <%= link_to '記事を編集する', edit_article_path(@article), class: "side-btn-blue-in" %>
+      </div>
+      <div class="side-btn-info-in">
+        <%= link_to '記事を削除する', article_path(@article), method: :delete, class: "side-btn-blue-in",  data: { confirm: "商品を削除しますか？" } %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
+
 
 <% if @user_show_page %>
-  ユーザー情報表示ページです。
+  <div class="side-page-info">
+    @user_show_page<br />
+      <div class="side-page-info-in">
+      <%= link_to '登録情報編集', edit_user_path(@user), class: "side-btn-blue-in" if user_signed_in? && @user.id == current_user.id %>
+      </div>
+
+
+    <div class="side-page-info-in">
+      <%= link_to 'ひとこと編集', new_user_tweet_path(@user), class: "side-btn-blue-in" if user_signed_in? && @user.id == current_user.id %>
+    </div>
+
+    <div class="side-page-info-in">
+      <%= link_to "投稿記事一覧", user_mine_path(params[:id]), class: "side-btn-blue-in" %>
+    </div>
+  </div>
+<% end %>
+
+<% if user_signed_in? %>
+  <div class="side-user-info">
+    <div class="side-user-logout">
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    </div>
+    <p>現在ログイン中</p>
+    <%# ログインしている場合に表示 %>
+    <div class="index-article-user-image">
+      <%= link_to user_path(current_user.id) do %>
+        <%= image_tag 'default-icon.png', class: "side-user-icon" unless current_user.image.attached? %>
+        <%= image_tag current_user.image, class: "side-user-icon" if current_user.image.attached? %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to current_user.name, user_path(current_user) %><br />
+      <div class="index-article-user-account">
+        @<%= current_user.account %>
+      </div>
+      <div>
+        <%= current_user.tweet.hitokoto if current_user.tweet %>
+      </div>
+      <div class="side-not-underline">
+        <a href="/articles/new">
+          <% unless @articles_new_page %>
+            <div class="side-btn-orange">
+              新規投稿
+            </div>
+          <% end %>
+        </a>
+      </div>
+    </div>
+  </div>
+<% else %>
+  <%# ログインしていない場合に表示 %>
+  <div>
+    <div class="side-not-underline">
+      <a href="/users/sign_in">
+        <div class="side-btn-blue">
+          ログイン
+        </div>
+      </a>
+    </div>
+    <div class="side-not-underline">
+      <a href="/users/sign_up">
+        <div class="side-btn-green">
+          新規ユーザー登録
+        </div>
+      </a>
+    </div>
+  </div>
+<% end %>
+
+
+<% if @index_page %>
+<% end %>
+
+
+<% if @articles_new_page %>
+  @articles_new_page
 <% end %>
 
 <% if @user_edit_page %>
-  ユーザー情報編集ページです。
+  @user_edit_page
+<% end %>
+
+<% if @mine_page %>
+  @mine_page
 <% end %>

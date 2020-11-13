@@ -3,3 +3,45 @@
   min-width: 450px;
   height: 20vh;
 }
+
+.new-error-messages {
+  color: red;
+}
+
+.new-form {
+  padding: 0 5px;
+}
+
+.new-form-select {
+  padding: 10px 5px;
+}
+
+.new-form-btn {
+  margin-bottom: 20px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.new-button {
+  display       : inline-block;
+  border-radius : 3%;
+  font-size     : 15pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 12px 12px;
+  background    : #ff4d4d;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  box-shadow    : 1px 1px 3px #666666;
+  border        : 2px solid #ff4d4d;
+  width: 50%;
+  min-width: 300px;
+}
+.new-button:hover {
+  box-shadow    : none;
+  color         : #ff4d4d;
+  background    : #ffffff;
+}
