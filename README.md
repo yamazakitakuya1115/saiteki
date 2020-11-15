@@ -40,11 +40,10 @@ deviseを用いてユーザー登録機能を実装することで、ユーザ�
 各記事でユーザー同士がコメント投稿によってコミュニケーションをとれる。
 
 ## 実装した機能についてのGIFと説明
-![トップページ](./images/1.gif)  
 トップページと各記事のページ  
-https://gyazo.com/35ef790cbedc1f535fed4510deef2389  
+![1.gif](./images/1.gif)  
 ユーザー詳細ページ  
-https://gyazo.com/f9d7080e2b0c2b024960686c9cfaf632
+![2.gif](./images/2.gif)
 
 
 ## 実装予定の機能
@@ -57,7 +56,7 @@ https://gyazo.com/f9d7080e2b0c2b024960686c9cfaf632
 
 ## データベース設計
 ER図  
-https://gyazo.com/1a0be222a31af03bbe601ebfa8b0a3ce
+![er.png](./images/er.png)  
 
 ## ローカルでの動作方法
 ```
