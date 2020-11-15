@@ -20,7 +20,6 @@
 
 <% if @user_show_page %>
   <div class="side-page-info">
-    @user_show_page<br />
       <div class="side-page-info-in">
       <%= link_to '登録情報編集', edit_user_path(@user), class: "side-btn-blue-in" if user_signed_in? && @user.id == current_user.id %>
       </div>
