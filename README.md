@@ -11,8 +11,8 @@
 https://saiteki-app.herokuapp.com/
 
 ## テスト用アカウント
-メールアドレス：test@sample.com
-パスワード：123abc
+メールアドレス：test@sample.com  
+パスワード：123abc  
 
 ## 利用方法
 ログインしていない状態でも、投稿された記事の閲覧ができる。  
