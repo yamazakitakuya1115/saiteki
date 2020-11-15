@@ -40,6 +40,7 @@ deviseを用いてユーザー登録機能を実装することで、ユーザ�
 各記事でユーザー同士がコメント投稿によってコミュニケーションをとれる。
 
 ## 実装した機能についてのGIFと説明
+![トップページと各記事のページ](https://github.com/yamazakitakuya1115/saiteki/blob/master/1.gif)
 トップページと各記事のページ  
 https://gyazo.com/35ef790cbedc1f535fed4510deef2389  
 ユーザー詳細ページ  
