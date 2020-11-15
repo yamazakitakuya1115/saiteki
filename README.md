@@ -11,7 +11,8 @@
 https://saiteki-app.herokuapp.com/
 
 ## テスト用アカウント
-（未デプロイ）
+メールアドレス：test@sample.com
+パスワード：123abc
 
 ## 利用方法
 ログインしていない状態でも、投稿された記事の閲覧ができる。  
@@ -54,9 +55,19 @@ https://gyazo.com/f9d7080e2b0c2b024960686c9cfaf632
 気に入った記事に対して「いいね」をすることができる。
 
 ## データベース設計
+ER図  
+https://gyazo.com/1a0be222a31af03bbe601ebfa8b0a3ce
 
 ## ローカルでの動作方法
-
+```
+git clone https://github.com/yamazakitakuya1115/saiteki.git
+bundle install
+yarn install
+rails db:create
+rails db:migrate
+```
+Ruby on Rails 6.0.0  
+Ruby 2.6.5  
 
 
 # テーブル設計
@@ -99,7 +110,7 @@ https://gyazo.com/f9d7080e2b0c2b024960686c9cfaf632
 - belongs_to :user
 - belongs_to :article
 
-## Tweets テーブル
+## tweets テーブル
  | Column   | Type       | Options                        |
  | -------- | ---------- | ------------------------------ |
  | profile  | text       |                                |
