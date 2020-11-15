@@ -41,6 +41,8 @@ deviseを用いてユーザー登録機能を実装することで、ユーザ�
 ## 実装した機能についてのGIFと説明
 トップページと各記事のページ  
 https://gyazo.com/35ef790cbedc1f535fed4510deef2389  
+ユーザー詳細ページ  
+https://gyazo.com/f9d7080e2b0c2b024960686c9cfaf632
 
 
 ## 実装予定の機能
