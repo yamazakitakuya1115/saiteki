@@ -9,7 +9,13 @@
       @grade、選択した学年、公開されているもの
       @subject、選択した教科、公開されているもの
       @genre、選択したジャンル、公開されているもの  %> 
-    <% if (@index_page && article.release ) || (!user_signed_in? && @mine_page && @user.id == article.user_id && article.release) || (user_signed_in? && @mine_page && @user.id == article.user_id && article.release) || (user_signed_in? && @mine_page && @user.id == article.user_id && article.user_id == current_user.id) || (@grade && article.grade_id == @grade.id && article.release) || (@subject && article.subject_id == @subject.id && article.release) || (@genre && article.genre_id == @genre.id && article.release) %>
+    <% if (@index_page && article.release ) ||
+    (!user_signed_in? && @mine_page && @user.id == article.user_id && article.release) ||
+    (user_signed_in? && @mine_page && @user.id == article.user_id && article.release) ||
+    (user_signed_in? && @mine_page && @user.id == article.user_id && article.user_id == current_user.id) ||
+    (@grade && article.grade_id == @grade.id && article.release) ||
+    (@subject && article.subject_id == @subject.id && article.release) ||
+    (@genre && article.genre_id == @genre.id && article.release) %>
 
         <div class="index-article-field">
           <div class="index-article-left">
