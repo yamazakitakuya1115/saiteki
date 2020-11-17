@@ -36,9 +36,18 @@
 
 // フッター部分
 .top-footer {
-  background-color: pink;
+  background-color: rgb(130, 207, 120);
   width: 100vw;
   height: 20vh;
+}
+
+.top-footer>ul {
+  display: flex;
+  justify-content: center;
+}
+
+.top-footer>ul>li {
+  margin: 40px 20px;
 }
 
 // ページ全体の配置
