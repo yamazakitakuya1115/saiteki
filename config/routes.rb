@@ -13,5 +13,8 @@ Rails.application.routes.draw do
   end
 
   get 'articles/search'
+  get 'grade' => 'articles#grade'
+  get 'subject' => 'articles#subject'
+  get 'genre' => 'articles#genre'
 
 end

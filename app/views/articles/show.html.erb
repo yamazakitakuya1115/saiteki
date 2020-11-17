@@ -15,19 +15,13 @@
   </div>
   <div class="show-info">
     <div class="show-grade">
-      <a href="" class="show-btn">
-        <%= @article.grade.name %>
-      </a>
+        <%= link_to "#{@article.grade.name}", grade_path(@article.grade_id), class: "show-btn" %>
     </div>
     <div class="show-subject">
-      <a href="" class="show-btn">
-        <%= @article.subject.name %>
-      </a>
+        <%= link_to "#{@article.subject.name}", subject_path(@article.subject_id), class: "show-btn" %>
     </div>
     <div class="show-genre">
-      <a href="" class="show-btn">
-        <%= @article.genre.name %>
-      </a>
+        <%= link_to "#{@article.genre.name}", genre_path(@article.genre_id), class: "show-btn" %>
     </div>
               <% if user_signed_in? && @article.release == false%>
                 <div class="index-article-not-release">

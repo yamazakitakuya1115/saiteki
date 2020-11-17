@@ -2,11 +2,11 @@ class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :move_to_index, only: [:edit, :update, :destroy]
+  before_action :set_articles, only: [:index, :grade, :subject, :genre]
 
 
   def index
     @index_page = true
-    @articles = Article.includes(:user).order('created_at DESC')
   end
 
   def new
@@ -52,6 +52,18 @@ class ArticlesController < ApplicationController
   def search
   end
 
+  def grade
+    @grade = Grade.find(params[:format])
+  end
+
+  def subject
+    @subject = Subject.find(params[:format])
+  end
+
+  def genre
+    @genre = Genre.find(params[:format])
+  end
+
   private
 
   def article_params
@@ -60,6 +72,10 @@ class ArticlesController < ApplicationController
 
   def set_article
     @article = Article.find(params[:id].to_i)
+  end
+
+  def set_articles
+    @articles = Article.includes(:user).order('created_at DESC')
   end
 
   def move_to_index

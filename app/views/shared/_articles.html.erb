@@ -5,8 +5,11 @@
   <%# @index_page、かつ公開されているもの 
       非ログイン状態、@mine_page、特定のユーザー、公開されているもの
       ログイン状態、@mine_page、特定のユーザー、公開されているもの
-      ログイン状態、@mine_page、特定のユーザー、自分が投稿したもの  %> 
-    <% if (@index_page && article.release ) || (user_signed_in? == false && @mine_page && @user.id == article.user_id && article.release) || (user_signed_in? && @mine_page && @user.id == article.user_id && article.release) || (user_signed_in? && @mine_page && @user.id == article.user_id && article.user_id == current_user.id) %>
+      ログイン状態、@mine_page、特定のユーザー、自分が投稿したもの
+      @grade、選択した学年、公開されているもの
+      @subject、選択した教科、公開されているもの
+      @genre、選択したジャンル、公開されているもの  %> 
+    <% if (@index_page && article.release ) || (!user_signed_in? && @mine_page && @user.id == article.user_id && article.release) || (user_signed_in? && @mine_page && @user.id == article.user_id && article.release) || (user_signed_in? && @mine_page && @user.id == article.user_id && article.user_id == current_user.id) || (@grade && article.grade_id == @grade.id && article.release) || (@subject && article.subject_id == @subject.id && article.release) || (@genre && article.genre_id == @genre.id && article.release) %>
 
         <div class="index-article-field">
           <div class="index-article-left">
@@ -37,19 +40,13 @@
             <div class="index-article-info">
               <%# 記事のカテゴリー %>
               <div class="index-grade">
-                <a href="" class="index-article-info-btn">
-                  <%= article.grade.name %>
-                </a>
+                  <%= link_to "#{article.grade.name}", grade_path(article.grade_id), class: "index-article-info-btn" %>
               </div>
               <div class="index-subject">
-                <a href="" class="index-article-info-btn">
-                  <%= article.subject.name %>
-                </a>
+                  <%= link_to "#{article.subject.name}", subject_path(article.subject_id), class: "index-article-info-btn" %>
               </div>
               <div class="index-genre">
-                <a href="" class="index-article-info-btn">
-                  <%= article.genre.name %>
-                </a>
+                  <%= link_to "#{article.genre.name}", genre_path(article.genre_id), class: "index-article-info-btn" %>
               </div>
               <% if user_signed_in? && @mine_page && @user.id == article.user_id && article.user_id == current_user.id && article.release == false%>
                 <div class="index-article-not-release">
