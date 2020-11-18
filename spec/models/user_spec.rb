@@ -9,6 +9,11 @@ RSpec.describe User, type: :model do
       expect(@user).to be_valid
     end
 
+    it 'アイコン画像は無くても登録ができる' do
+      @user.image = nil
+      expect(@user).to be_valid
+    end
+
     it 'アカウント名が空欄だと登録できない' do
       @user.account = ""
       @user.valid?
@@ -21,7 +26,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("アカウント名は3文字以上で入力してください")
     end
 
-    it 'アカウント名が31文字以上だと登録できない' do
+    it 'アカウント名が21文字以上だと登録できない' do
       @user.account = "a"*21
       @user.valid?
       expect(@user.errors.full_messages).to include("アカウント名は20文字以内で入力してください")
@@ -56,10 +61,10 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("ユーザー名を入力してください")
     end
 
-    it 'ユーザー名が31文字以上だと登録できない' do
-      @user.name = "あ"*31
+    it 'ユーザー名が21文字以上だと登録できない' do
+      @user.name = "あ"*21
       @user.valid?
-      expect(@user.errors.full_messages).to include("ユーザー名は30文字以内で入力してください")
+      expect(@user.errors.full_messages).to include("ユーザー名は20文字以内で入力してください")
     end
 
     it 'メールアドレスが空欄だと登録できない' do
@@ -80,11 +85,6 @@ RSpec.describe User, type: :model do
       another_user.email = @user.email
       another_user.valid?
       expect(another_user.errors.full_messages).to include("メールアドレスはすでに存在します")
-    end
-
-    it 'プロフィールは空欄でも登録できる' do
-      @user.profile = ""
-      expect(@user).to be_valid
     end
 
     it '都道府県を選択していないと登録できない' do
