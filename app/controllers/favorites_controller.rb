@@ -12,10 +12,11 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    favorite = Favorite.new(favorite_params)
-    if favorite.save
-      redirect_to action: :index
+    # すでにいいね！してある場合はデータが保存されない
+    unless Favorite.find_by(article_id: params[:format].to_i, user_id: current_user.id)
+      Favorite.create(favorite_params)
     end
+    redirect_to action: :index
   end
 
   def destroy

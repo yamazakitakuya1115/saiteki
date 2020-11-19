@@ -69,6 +69,7 @@
             <%# コメント数と時刻 %>
             <div class="index-article-by">
               <div class="index-article-comments">
+                <%= "いいね！(#{article.favorites.length})" %>
               <% if article.comments.length >= 1 %>
                 <%= link_to "コメント(#{article.comments.length})", "/articles/#{article.id}#comments", class: "index-article-comments-bold" %>
               <% else %>
