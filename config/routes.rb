@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   get 'subject' => 'articles#subject'
   get 'genre' => 'articles#genre'
 
+  resources :favorites, only: :index
+
 end
