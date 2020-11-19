@@ -40,6 +40,8 @@ deviseを用いてユーザー登録機能を実装することで、ユーザ�
 各記事でユーザー同士がコメント投稿によってコミュニケーションをとれる。
 ### カテゴリー機能
 学年や教科別に記事を探すことができる。
+### いいね機能
+気に入った記事に対して「いいね」をすることができる。
 
 ## 実装した機能についてのGIFと説明
 トップページと各記事のページ  
@@ -51,8 +53,6 @@ deviseを用いてユーザー登録機能を実装することで、ユーザ�
 ## 実装予定の機能
 ### 検索機能
 キーワードを入力して記事を探すことができる。
-### いいね機能
-気に入った記事に対して「いいね」をすることができる。
 
 ## データベース設計
 ER図  
@@ -83,6 +83,7 @@ Ruby 2.6.5
 - has_many :articles
 - has_many :comments
 - has_one :tweet
+- has_many :favorites
 
 ## articles テーブル
 | Column     | Type       | Options                           |
@@ -98,6 +99,7 @@ Ruby 2.6.5
 ### Association
 - belongs_to :user
 - has_many :comments
+- has_many :favorites
 
 ## comments テーブル
 | Column  | Type       | Options                        |
@@ -119,3 +121,13 @@ Ruby 2.6.5
 
  ### Association
  - belings_to user
+
+ ## favorites テーブル
+ | column  | Type       | Options                        |
+ | ------- | ---------- | ------------------------------ |
+ | user    | references | null: false, foreign_key: true |
+ | article | references | null: false, foreign_key: true |
+
+ ### Association
+ - belongs_to user
+ - belongs_to article

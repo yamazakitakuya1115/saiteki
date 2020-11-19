@@ -1,6 +1,6 @@
 <div class="index-article">
 <%# @articlesがあれば表示 %>
-<% if @articles.exists? %>
+<% if @articles %>
   <% @articles.each do |article| %>
   <%# @index_page、かつ公開されているもの 
       非ログイン状態、@mine_page、特定のユーザー、公開されているもの
@@ -8,14 +8,16 @@
       ログイン状態、@mine_page、特定のユーザー、自分が投稿したもの
       @grade、選択した学年、公開されているもの
       @subject、選択した教科、公開されているもの
-      @genre、選択したジャンル、公開されているもの  %> 
+      @genre、選択したジャンル、公開されているもの
+      @favorite_page、公開されているもの  %> 
     <% if (@index_page && article.release ) ||
     (!user_signed_in? && @mine_page && @user.id == article.user_id && article.release) ||
     (user_signed_in? && @mine_page && @user.id == article.user_id && article.release) ||
     (user_signed_in? && @mine_page && @user.id == article.user_id && article.user_id == current_user.id) ||
     (@grade && article.grade_id == @grade.id && article.release) ||
     (@subject && article.subject_id == @subject.id && article.release) ||
-    (@genre && article.genre_id == @genre.id && article.release) %>
+    (@genre && article.genre_id == @genre.id && article.release) ||
+    (@favorite_page && article.release) %>
 
         <div class="index-article-field">
           <div class="index-article-left">
@@ -67,6 +69,7 @@
             <%# コメント数と時刻 %>
             <div class="index-article-by">
               <div class="index-article-comments">
+                <%= "いいね！(#{article.favorites.length})" %>
               <% if article.comments.length >= 1 %>
                 <%= link_to "コメント(#{article.comments.length})", "/articles/#{article.id}#comments", class: "index-article-comments-bold" %>
               <% else %>

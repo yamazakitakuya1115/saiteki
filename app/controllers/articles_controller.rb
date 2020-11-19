@@ -30,6 +30,9 @@ class ArticlesController < ApplicationController
         redirect_to root_path
       end
     end
+    if user_signed_in? && @article.favorites.find_by(user_id: current_user.id)
+      @favorite = true
+    end
   end
 
   def edit

@@ -14,6 +14,13 @@
         <%= link_to '記事を削除する', article_path(@article), method: :delete, class: "side-btn-blue-in",  data: { confirm: "記事を削除しますか？" } %>
       </div>
     <% end %>
+    <%= "いいね！(#{@article.favorites.length})" %>
+    <% if user_signed_in? %>
+      <div class="side-page-info-in">
+        <%= link_to 'いいね！する', favorites_path(@article), method: :post, class: "side-btn-blue-in" unless @favorite %>
+        <%= link_to 'いいね！削除', favorite_path(@article), method: :delete, class: "side-btn-blue-in" if @favorite %>
+      </div>
+    <% end %>
   </div>
 <% end %>
 
@@ -64,6 +71,13 @@
             </div>
           <% end %>
         </a>
+        <a href="/favorites">
+          <% unless @favorite_page %>
+            <div class="side-btn-orange">
+              いいね！一覧
+            </div>
+          <% end %>
+        </a>
       </div>
     </div>
   </div>
@@ -91,15 +105,11 @@
 <% if @index_page %>
 <% end %>
 
-
 <% if @articles_new_page %>
-  @articles_new_page
 <% end %>
 
 <% if @user_edit_page %>
-  @user_edit_page
 <% end %>
 
 <% if @mine_page %>
-  @mine_page
 <% end %>

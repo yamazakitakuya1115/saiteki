@@ -5,7 +5,10 @@ class Article < ApplicationRecord
     belongs_to_active_hash :genre
 
   belongs_to :user
-  has_many :comments, dependent: :destroy
+  with_options dependent: :destroy do
+    has_many :comments
+    has_many :favorites
+  end
   
 
   with_options presence: true do
