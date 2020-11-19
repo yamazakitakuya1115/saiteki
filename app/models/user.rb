@@ -19,5 +19,6 @@ class User < ApplicationRecord
     has_one_attached :image
     has_many :comments
     has_one :tweet
+    has_many :favorites
   end
 end
