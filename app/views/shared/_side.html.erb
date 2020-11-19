@@ -14,6 +14,9 @@
         <%= link_to '記事を削除する', article_path(@article), method: :delete, class: "side-btn-blue-in",  data: { confirm: "記事を削除しますか？" } %>
       </div>
     <% end %>
+    <div class="side-page-info-in">
+      <%= link_to 'いいね！', favorites_path(@article), method: :post, class: "side-btn-blue-in" %>
+    </div>
   </div>
 <% end %>
 
