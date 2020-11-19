@@ -83,6 +83,7 @@ Ruby 2.6.5
 - has_many :articles
 - has_many :comments
 - has_one :tweet
+- has_many :favorites
 
 ## articles テーブル
 | Column     | Type       | Options                           |
@@ -98,6 +99,7 @@ Ruby 2.6.5
 ### Association
 - belongs_to :user
 - has_many :comments
+- has_many :favorites
 
 ## comments テーブル
 | Column  | Type       | Options                        |
@@ -119,3 +121,13 @@ Ruby 2.6.5
 
  ### Association
  - belings_to user
+
+ ## favorites テーブル
+ | column  | Type       | Options                        |
+ | ------- | ---------- | ------------------------------ |
+ | user    | references | null: false, foreign_key: true |
+ | article | references | null: false, foreign_key: true |
+
+ ### Association
+ - belongs_to user
+ - belongs_to article
