@@ -19,6 +19,9 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
+    favorite = Favorite.find_by(article_id: params[:id], user_id: current_user.id)
+    favorite.destroy
+    redirect_to action: :index
   end
 
   private

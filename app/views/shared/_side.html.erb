@@ -15,7 +15,8 @@
       </div>
     <% end %>
     <div class="side-page-info-in">
-      <%= link_to 'いいね！', favorites_path(@article), method: :post, class: "side-btn-blue-in" %>
+      <%= link_to 'いいね！する', favorites_path(@article), method: :post, class: "side-btn-blue-in" unless @favorite %>
+      <%= link_to 'いいね！削除', favorite_path(@article), method: :delete, class: "side-btn-blue-in" if @favorite %>
     </div>
   </div>
 <% end %>
@@ -67,6 +68,13 @@
             </div>
           <% end %>
         </a>
+        <a href="/favorites">
+          <% unless @favorite_page %>
+            <div class="side-btn-orange">
+              いいね一覧
+            </div>
+          <% end %>
+        </a>
       </div>
     </div>
   </div>
@@ -94,15 +102,11 @@
 <% if @index_page %>
 <% end %>
 
-
 <% if @articles_new_page %>
-  @articles_new_page
 <% end %>
 
 <% if @user_edit_page %>
-  @user_edit_page
 <% end %>
 
 <% if @mine_page %>
-  @mine_page
 <% end %>
