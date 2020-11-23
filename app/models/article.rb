@@ -20,4 +20,16 @@ class Article < ApplicationRecord
   validates :subject_id, numericality: { other_than: 0, message: "を選択してください" }
   validates :genre_id, numericality: { other_than: 0, message: "を選択してください" }
 
+  def self.title_search(search)
+    if search != ""
+      Article.where('title LIKE(?)', "%#{search}%")
+    end
+  end
+
+  def self.content_search(search)
+    if search != ""
+      Article.where('content LIKE(?)', "%#{search}%")
+    end
+  end
+
 end

@@ -53,6 +53,16 @@ class ArticlesController < ApplicationController
   end
 
   def search
+    if params[:part] == "title"
+      @title_search = true
+      @articles = Article.title_search(params[:keyword])
+    end
+    if params[:part] == "content"
+      @content_search = true
+      @articles = Article.content_search(params[:keyword])
+    end
+    @search_page = true
+    @keyword = params[:keyword]
   end
 
   def grade

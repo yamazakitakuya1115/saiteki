@@ -1,0 +1,8 @@
+<% if @title_search %>
+  <h1><%= "『#{@keyword}』をタイトルに含む記事" %></h1>
+<% end %>
+<% if @content_search %>
+  <h1><%= "『#{@keyword}』を本文に含む記事" %></h1>
+<% end %>
+
+<%= render partial: "shared/articles" %>

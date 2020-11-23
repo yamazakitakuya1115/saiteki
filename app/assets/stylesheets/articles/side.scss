@@ -155,3 +155,28 @@ a.side-btn-green:hover {
 .side-not-underline {
   width: 100%;
 }
+
+.side-search-field {
+  width: 90%;
+  height: 2em;
+  margin: 10px 5px 0 5px;
+  padding: 0 5px;
+}
+
+.side-search-btn {
+  margin-top: 10px;
+  display: inline-block;
+  border-radius: 20%;
+  font-size: 13pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 9px 12px;
+  background: #ff4444;
+  color: #ffffff;
+  line-height: 1em;
+  transition: .3s;
+  box-shadow: 3px 3px 3px #666666;
+}
+.side-search-btn:hover {
+  box-shadow: none;
+}

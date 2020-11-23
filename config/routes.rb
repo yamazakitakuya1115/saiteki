@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments, only: :create
+    collection do
+      get 'search'
+    end
   end
 
   root to: 'articles#index'
@@ -12,7 +15,6 @@ Rails.application.routes.draw do
     resources :tweets, only: [:new, :create, :edit, :update]
   end
 
-  get 'articles/search'
   get 'grade' => 'articles#grade'
   get 'subject' => 'articles#subject'
   get 'genre' => 'articles#genre'

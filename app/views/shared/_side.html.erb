@@ -113,3 +113,14 @@
 
 <% if @mine_page %>
 <% end %>
+
+<%= form_with(model: @article, url: search_articles_path, method: :get, local: true) do |f| %>
+  <%= f.text_field :keyword, placeholder: 'キーワードを入力', class: "side-search-field", autocomplete: 'off', maxlength: "30" %>
+  <div>
+    <%= f.radio_button :part, :title, checked: true %>
+    <%= f.label :part, "タイトル", {value: :title, style: "display: inline-block;"} %>
+    <%= f.radio_button :part, :content %>
+    <%= f.label :part, "本文", {value: :content, style: "display: inline-block;"} %>
+  </div>
+  <%= f.submit '記事検索', class: "side-search-btn" %>
+<% end %>
