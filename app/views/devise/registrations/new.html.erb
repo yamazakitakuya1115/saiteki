@@ -16,17 +16,17 @@
 
   <div class="field">
     <%= f.label 'アカウント名（登録後は変更できません）' %><br />
-    @<%= f.text_field :account, placeholder: "半角英数 20文字まで", autofocus: true, maxlength: "20", class: "new-form" %>
+    @<%= f.text_field :account, placeholder: "半角英数 20文字まで", autofocus: true, maxlength: "20", class: "new-form", autocomplete: 'off' %>
   </div>
 
   <div class="field">
     <%= f.label 'ユーザー名' %><br />
-    <%= f.text_field :name, placeholder: "かな＆英数 20文字まで", maxlength: "20", class: "new-form" %>
+    <%= f.text_field :name, placeholder: "かな＆英数 20文字まで", maxlength: "20", class: "new-form", autocomplete: 'off' %>
   </div>
 
   <div class="field">
     <%= f.label 'メールアドレス' %><br />
-    <%= f.email_field :email, class: "new-form" %>
+    <%= f.email_field :email, class: "new-form", autocomplete: 'off' %>
   </div>
 
   <div class="field">
