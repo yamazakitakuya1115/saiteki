@@ -24,7 +24,7 @@
   </div>
 
   <div class="field">
-    <%= f.label 'ジャンル' %><br />
+    <%= f.label 'ジャンル' %>
     <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"article-genre"}) %>
   </div>
   <div class="field">

@@ -6,12 +6,12 @@
 
   <div class="field">
     <%= f.label '記事タイトル' %><br />
-    <%= f.text_field :title, placeholder: '40文字まで', autofocus: true, maxlength: "40" %>
+    <%= f.text_field :title, placeholder: '40文字まで', autofocus: true, maxlength: "40", autocomplete: 'off' %>
   </div>
 
   <div class="field">
     <%= f.label 'ひとこと説明' %><br />
-    <%= f.text_field :description, placeholder: '20文字まで', maxlength: "20" %>
+    <%= f.text_field :description, placeholder: '20文字まで', maxlength: "20", autocomplete: 'off' %>
   </div>
 
   <div class="field">
