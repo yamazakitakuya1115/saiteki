@@ -3,8 +3,10 @@
     この記事の投稿者
     <%= image_tag 'default-icon.png', class: "side-user-icon" unless @article.user.image.attached? %><br />
     <%= image_tag @article.user.image, class:"side-user-icon" if @article.user.image.attached? %><br />
-    <%= link_to "#{@article.user.name}", user_path(@article.user_id) %><br />
-    @<%= @article.user.account %><br />
+    <%= link_to "#{@article.user.name}", user_path(@article.user_id) %>
+    <div class="index-article-user-account">
+      @<%= @article.user.account %>
+    </div>
     <%= @article.user.tweet.hitokoto if @article.user.tweet %><br />
     <% if user_signed_in? && @article.user_id == current_user.id %>
       <div class="side-page-info-in">
