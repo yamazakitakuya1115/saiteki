@@ -6,27 +6,27 @@
 
   <div class="field">
     <%= f.label '記事タイトル' %><br />
-    <%= f.text_field :title, placeholder: '40文字まで', autofocus: true, maxlength: "40", autocomplete: 'off' %>
+    <%= f.text_field :title, placeholder: '40文字まで', autofocus: true, maxlength: "40", autocomplete: 'off', class: "new-article-title" %>
   </div>
 
   <div class="field">
     <%= f.label 'ひとこと説明' %><br />
-    <%= f.text_field :description, placeholder: '20文字まで', maxlength: "20", autocomplete: 'off' %>
+    <%= f.text_field :description, placeholder: '20文字まで', maxlength: "20", autocomplete: 'off', class: "new-article-hitokoto" %>
   </div>
 
   <div class="field">
     <%= f.label '学年' %><br />
-    <%= f.collection_select(:grade_id, Grade.all, :id, :name, {}, {class:"select-box", id:"article-grade"}) %>
+    <%= f.collection_select(:grade_id, Grade.all, :id, :name, {}, {class:"new-article-select", id:"article-grade"}) %>
   </div>
 
   <div class="field">
     <%= f.label '教科' %><br />
-    <%= f.collection_select(:subject_id, Subject.all, :id, :name, {}, {class:"select-box", id:"article-subject"}) %>
+    <%= f.collection_select(:subject_id, Subject.all, :id, :name, {}, {class:"new-article-select", id:"article-subject"}) %>
   </div>
 
   <div class="field">
     <%= f.label 'ジャンル' %><br />
-    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"select-box", id:"article-genre"}) %>
+    <%= f.collection_select(:genre_id, Genre.all, :id, :name, {}, {class:"new-article-select", id:"article-genre"}) %>
   </div>
   <div class="field">
     <%= f.label '記事内容' %><br />
