@@ -4,6 +4,9 @@ class CommentsController < ApplicationController
     comment = Comment.new(comment_params)
     if comment.save
       redirect_to "/articles/#{comment.article.id}#comments"
+    else
+      @article = Article.find(params[:article_id].to_i)
+      render template: "articles/show"
     end
   end
 
