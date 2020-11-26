@@ -78,7 +78,7 @@
         <div>
           <%= f.text_area :message, placeholder: "コメントを入力してください", maxlength: 500, class: "show-comment-form" %>
         </div>
-        <%= f.submit "コメントを投稿する" %>
+        <%= f.submit "コメントを投稿する", class: "show-comment-btn" %>
       <% end %>
     <% else %>
       ※コメントを投稿するためにはログインが必要です

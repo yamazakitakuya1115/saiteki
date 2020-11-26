@@ -156,3 +156,25 @@ a.show-btn:hover {
   white-space: pre-line;
   margin: -20px 0 0 20px;
 }
+
+.show-comment-btn {
+  display       : inline-block;
+  border-radius : 3%;
+  font-size     : 15pt;
+  text-align    : center;
+  cursor        : pointer;
+  padding       : 12px 12px;
+  background    : #4747db;
+  color         : #ffffff;
+  line-height   : 1em;
+  transition    : .3s;
+  box-shadow    : 1px 1px 3px #666666;
+  border        : 2px solid #4747db;
+  width: 50%;
+  min-width: 300px;
+}
+.show-comment-btn:hover {
+  box-shadow    : none;
+  color         : #4747db;
+  background    : #ffffff;
+}
